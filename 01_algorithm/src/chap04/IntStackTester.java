@@ -12,7 +12,7 @@ public class IntStackTester {
 		
 		while(true) {
 			System.out.println("현재 데이터 수 : " + s.size() + " / " + s.capacity());
-			System.out.print("(1)푸쉬  (2)팝  (3)피크  (4)덤프  (0)종료 : ");
+			System.out.print("(1)푸쉬  (2)팝  (3)피크  (4)덤프  (5)검색  (6)비움  (7)정보표시  (0)종료 : ");
 			int menu = scan.nextInt();
 			if(menu == 0) break;
 			
@@ -48,6 +48,28 @@ public class IntStackTester {
 				
 				case 4:
 					s.dump();
+					break;
+					
+				case 5:
+					System.out.print("찾는 데이터 : ");
+					x = scan.nextInt();
+					int n = s.indexOf(x);
+					if(n >= 0) {
+						System.out.println("꼭대기부터 " + (s.size() - n) + "번 째에 있습니다.");
+					} else {
+						System.out.println("그 데이터가 없습니다.");
+					}
+					break;
+					
+				case 6:
+					s.clear();
+					break;
+					
+				case 7:
+					System.out.println("용량 : " + s.capacity());
+					System.out.println("데이터 수 : " + s.size());
+					System.out.println("비어 " + (s.isEmpty() ? "있습니다." : "있지 앖습니다."));
+					System.out.println("가득 " + (s.isFull() ? "찼습니다." : "차지 않았습니다."));
 					break;
 			}
 		}
